@@ -1,0 +1,575 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css"/>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+</head>
+<body>
+	<header class="navbar navbar-static-top navbar-fixed-top" style="border-bottom: 2px solid rgba(0, 0, 0, 0.4);">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">音箱</a></li>
+                    <li><a href="#">地点</a></li>
+                    <li><a href="#">时间表</a></li>
+                    <li><a href="#">酒店</a></li>
+                    <li><a href="#">赞助商</a></li>
+                    <li><a href="#" target="_blank">进行</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <!--<div id="header-bg" class="header header-bg-alt">
+            <div class="header-bg-image-alt"></div>
+                <div class="container-fluid pos-rel">
+                    <div class="main-headline">
+                        <h1>Laracon 2017</h1>
+                        <h3>July 25-26, 2017 | NYC</h3>
+
+                        <div class="lead mb2">Two amazing days of learning, growing, and mingling with the Laravel community - returning to the Big Apple.</div>
+
+
+                        <button type="button" class="btn btn-primary btn-lg btn-block">Tickets Are Sold Out!</button>
+                    </div>
+                </div>
+            </div> -->
+    <div id="header-bg" class="header header-bg-alt">
+        <div class="header-bg-image-alt"></div>
+            <div class="container-fluid pos-rel">
+                <div class="main-headline">
+                    <h1>拉腊克 2017年</h1>
+                    <h3>2017年7月25日至26日| NYC</h3>
+                    <div class="lead mb2">
+                    	与Laravel社区学习，成长和融合的两个惊人的日子 - 回到了大苹果。
+                    </div>
+                    <form class="card" @submit.prevent="addEmail">
+                        <div v-if="! emailGathered">
+                            <p class="text-center mb1.25">
+                            	<strong>我们已经卖完了门票！但是，您可以将电子邮件地址放在我们的等待名单上，以便通过取消获取的门票被通知。
+                            </p>
+                            <input type="email" class="form-control input-lg mb1.25" name="email" placeholder="" v-model="email" autofocus>
+                            <button type="button" class="btn btn-primary btn-lg btn-block" style="background: #e57d69 none repeat scroll 0 0;">
+                                	把我加入轮候册
+                            </button>
+                        </div>
+                        <div v-else v-cloak>
+                            <p class="text-xl mb0">谢谢！我们会保持联系。</p>
+                        </div>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<section id="meet-speakers">
+        <div class="container-fluid">
+            <h2>音箱</h2>
+            <div class="speakers">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker-taylor.png" class="speaker-img">
+	                        <h4><a href="#">泰勒·奥特维尔</a></h4>
+	                        <h5>Laravel的创造者</h5>
+	                    </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker-jeffrey.png" class="speaker-img">
+	                        <h4><a href="#">Jeffrey Way</a></h4>
+	                        <h5>Laracasts的创始人</h5>
+	                    </div>
+                    </div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker-adam.png" class="speaker-img">
+	                        <h4><a href="#">亚当·瓦森</a></h4>
+	                        <h5>开发者/冲浪者</h5>
+	                    </div>
+                    </div>
+                    <div class="clearfix visible-lg"></div>
+                    <div class="clearfix visible-md"></div>
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker-even.png" class="speaker-img">
+	                        <h4><a href="#">埃文你</a></h4>
+	                        <h5>Vue.js的创建者</h5>
+	                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="speaker-item">
+                        <img src="img/speaker-matt.png" class="speaker-img">
+                        <h4><a href="#">马特·斯托夫</a></h4>
+                        <h5>加强合作伙伴</h5>
+                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="speaker-item">
+                        <img src="img/speaker-nils.jpg" class="speaker-img">
+                        <h4><a href="#">尼尔斯·阿德曼</a></h4>
+                        <h5>作曲者创作者</h5>
+                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="speaker-item">
+                        <img src="img/speaker-justin.jpg" class="speaker-img">
+                        <h4><a href="#">贾斯汀·杰克逊</a></h4>
+                        <h5>制作者</h5>
+                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="speaker-item">
+                        <img src="img/speaker-freek.png" class="speaker-img">
+                        <h4><a href="#">Freek Van der Herten</a></h4>
+                        <h5>Spatie的开发人员</h5>
+                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="speaker-item">
+                        <img src="img/speaker-sean.jpg" class="speaker-img">
+                        <h4><a href="#">肖恩·拉金</a></h4>
+                        <h5>Webpack核心团队</h5>
+                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker-laura.png" class="speaker-img">
+	                        <h4><a href="#">L劳拉伊丽莎白</a></h4>
+	                        <h5>UI / UX设计器</h5>
+	                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker-tom.jpg" class="speaker-img">
+	                        <h4><a href="#">汤姆·施莱克</a></h4>
+	                        <h5>RunMyBusiness高级工程师</h5>
+	                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker-mathias.jpg" class="speaker-img">
+	                        <h4><a href="#">Mathias Hansen</a></h4>
+	                        <h5>VideoBlocks的主管工程师</h5>
+	                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker-michele.jpg" class="speaker-img">
+	                        <h4><a href="#">米歇尔·汉森</a></h4>
+	                        <h5>产品在The Motley Fool</h5>
+	                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker_jack.png" class="speaker-img">
+	                        <h4><a href="#">杰克·麦克德德</a></h4>
+	                        <h5>雕塑创作者</h5>
+	                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker_maxime.jpg" class="speaker-img">
+	                        <h4><a href="#">马克西姆·洛克斯维尔</a></h4>
+	                        <h5>Algolia全堆栈工程师</h5>
+	                    </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+	                    <div class="speaker-item">
+	                        <img src="img/speaker-submit.png" class="speaker-img">
+	                        <h4><a href="#">您</a></h4>
+	                        <h5>提交你的谈话以供考虑</h5>
+	                    </div>
+                    </div>
+                    <div class="clearfix visible-lg"></div>
+                    <div class="clearfix visible-md"></div>
+                    <div class="clearfix visible-sm"></div>
+                    <div class="clearfix visible-xs"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="activities">
+        <div class="container-fluid">
+            <h2>活动</h2>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="activities-svg-container">
+                        <object type="image/svg+xml" data="img/illustration-show.svg" width="100%" height="100%" class="illustration-activities"></object>
+                    </div>
+                    <h3 class="title-red">拉腊科学博览会</h3>
+                    <p>想要向社区展示一个很酷的旁边项目？在Laracon科学展览会上展示并获得反馈。</p>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="activities-svg-container">
+                        <object type="image/svg+xml" data="img/illustration-dj.svg" width="100%" height="100%" class="illustration-activities"></object>
+                    </div>
+                    <h3 class="title-red">在缔约方之后</h3>
+                    <p>在聚会之后，在我们现场的Laravel社区聚会，聆听一些音乐。饮料在我们身上</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="the-venue">
+        <div class="container-fluid">
+            <h2>地点</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <h3 class="title-red">新世界阶段</h3>
+                    <p>新世界阶梯坐落在繁华的时代广场和时尚的地狱厨房之间，是Laracon 2017的完美地点。夏普当代设计为Laracon返回纽约提供了时尚的背景。享受舒适的剧院式座位，同时聆听每场演讲。</p>
+                    <a href="#" style="color: #e57d69; font-size: 16px; font-weight: 300;">访问网站</a>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="svg-container">
+                        <object type="image/svg+xml" data="img/venue-illustration.svg" width="100%" height="100%" class="venue-illustration"></object>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="the-schedule">
+        <div class="container-fluid">
+            <h2>时间表</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 schedule-day">
+                    <div class="day-schedule-title">
+                        <h3>第1天</h3>
+                        <h5>2017年7月25日，星期二</h5>
+                    </div>
+                    <ul class="schedule-list">
+                        <li>
+                            <div class="schedule-time">上午8:15</div>
+                            <div class="event-name">门打开和鸣叫</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">上午9:00</div>
+                            <div class="event-name">第1节</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">上午9:45</div>
+                            <div class="event-name">会议2</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">上午10:30</div>
+                            <div class="event-name">打破和鸣叫</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">上午10:50</div>
+                            <div class="event-name">会议3</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">上午11:35</div>
+                            <div class="event-name">第四节</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午12:30</div>
+                            <div class="event-name">午餐</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午2点</div>
+                            <div class="event-name">会议5</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午2:45</div>
+                            <div class="event-name">第六节</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午3:30</div>
+                            <div class="event-name">打破和鸣叫</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午3:50</div>
+                            <div class="event-name">会议7</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">午4:35</div>
+                            <div class="event-name">第八节</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午5:30</div>
+                            <div class="event-name">党与明陵之后</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-6 schedule-day">
+                    <div class="day-schedule-title">
+                        <h3>第二天</h3>
+                        <h5>2017年7月26日，星期三</h5>
+                    </div>
+                    <ul class="schedule-list">
+                        <li>
+                    	    <div class="schedule-time">上午8:15</div>
+                            <div class="event-name">门打开和鸣叫</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">上午9:00</div>
+                            <div class="event-name">会议9</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">上午9:45</div>
+                            <div class="event-name">会议10</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">上午10:30</div>
+                            <div class="event-name">打破和鸣叫</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">上午10:50</div>
+                            <div class="event-name">会议11</div>
+                        </li>
+                        <li>
+                        	<div class="schedule-time">上午11:35</div>
+                            <div class="event-name">第12节</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午12:30</div>
+                            <div class="event-name">午餐</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午2:00</div>
+                            <div class="event-name">第13节</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午2:45</div>
+                            <div class="event-name">第14节</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午3:30</div>
+                            <div class="event-name">打破和鸣叫</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午3:50</div>
+                            <div class="event-name">会议15</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午4:35</div>
+                            <div class="event-name">会议16</div>
+                        </li>
+                        <li>
+                            <div class="schedule-time">下午5:30</div>
+                            <div class="event-name">党与明陵之后</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="hotels">
+        <div class="container-fluid">
+            <h2>酒店</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-9">
+                    <p>各种酒店都位于活动场地的步行距离内。这里有几个你可能会感兴趣的！</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="hotel-description hotel-novotel">
+                        <a href="#" class="hotel-name">纽约时代广场诺富特酒店</a>
+                        <div class="hotel-distance">距场地<strong>0.3英里</strong></div>
+                        <div class="hotel-class">四星级酒店</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="hotel-description hotel-sheraton">
+                        <a href="#" class="hotel-name">喜来登时代广场</a>
+                        <div class="hotel-distance">距场地<strong>0.4英里</strong><</div>
+                        <div class="hotel-class">四星级酒店</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="hotel-description hotel-hampton">
+                        <a href="#" class="hotel-name">曼哈顿时代广场汉普顿酒店</a>
+                        <div class="hotel-distance">距场地<strong>0.2 英里</strong></div>
+                        <div class="hotel-class">3星级酒店</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="hotel-description hotel-hilton">
+                        <a href="#" class="hotel-name">时代广场希尔顿花园酒店</a>
+                        <div class="hotel-distance">距场地<strong>0.2 英里</strong></div>
+                        <div class="hotel-class">3星级酒店</div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="hotel-description hotel-w">
+                        <a href="#" class="hotel-name">时代广场</a>
+                        <div class="hotel-distance">距场地<strong>0.4 英里</strong></div>
+                        <div class="hotel-class">四星级酒店</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="sponsors">
+         <div class="container-fluid">
+            <h2>赞助商</h2>
+            <div class="row">
+                <div class="col-xs-12 col-sm-9">
+                    <p>如果没有我们的赞助商，Laracon就不可能。如果您有兴趣成为赞助商，<a href="#">请联系！</a>!</p>
+                </div>
+            </div>
+            <h3 class="title-red">黄金赞助商</h3>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                     	<div class="partner-logo partner-larajobs"></div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-vehikl"></div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-tighten"></div>
+                    </a>
+                </div>
+            </div>
+            <div class="row">
+	            <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-laracasts"></div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-bugsnag"></div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-sentry"></div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-nexmo"></div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-algolia"></div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-sensiolabs"></div>
+                    </a>
+                </div>
+            </div>
+            <h3 class="title-red">银赞助</h3>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-foster-made"></div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-drn">
+                            <img src="img/partner-drn.png" width="220" height="60">
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <h3 class="title-red">社区</h3>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-dinkbit"></div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                   <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-brosa">
+                            <img src="img/partner-brosa.png" width="220" height="60">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                   <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-soaring">
+                            <img src="img/partner-soaring.png" width="220" height="60">
+                        </div>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <a href="#" class="partner-logo-container">
+                        <div class="partner-logo partner-contest-kit"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="container-fluid">
+            <div class="legal" style="font-size: 19px; font-weight: normal;">
+                <small>©Laravel LLC。版权所有</small>
+                <small>
+                	按照我们在Twitter
+                	<a href="#">@LaraconUS</a> 
+                	或与我们联系
+                	<a href="#">
+ 						&#116;&#097;&#121;&#108;&#111;&#114;&#064;&#108;&#097;&#114;&#097;&#118;&#101;&#108;&#046;&#099;&#111;&#109;
+                	</a>
+                		.
+                </small>
+            </div>
+            <a href="#" class="credits">
+                <div class="schoger-logo"></div>
+                <p>网站设计+  <br>由史蒂夫Schoger建造</p>
+            </a>
+        </div>
+    </section>
+<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
